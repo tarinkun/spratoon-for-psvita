@@ -13,7 +13,12 @@ struct GameState {
     // プレイヤーの位置、方向、状態
     // 弾丸のリスト
     // 地形データ
-    // UI要素のデータ
+    //UI
+WeaponStats g_weaponStats[NUM_WEAPON_TYPES] = {
+{WEAPON_SHORT_RANGE, 5.0f, 10.0f, 0.1f}, // 短射程シュータ
+{WEAPON_MIDDLE_RANGE, 10.0f, 8.0f, 0.2f}, // 中射程ブラスター
+{WEAPON_LONG_RANGE, 20.0f, 5.0f, 0.5f},   // 長射程チャージャー
+};
     // ゲームフェーズ (タイトル、ゲーム中、ゲームオーバー等)
     // その他
 };
