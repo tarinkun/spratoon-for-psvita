@@ -8,17 +8,52 @@
 // #include "world.h"  // ゲーム世界のクラス
 // #include "projectile.h" // 弾丸のクラス
 
+enum WeaponType {
+    WEAPON_SHORT_RANGE,
+    WEAPON_MIDDLE_RANGE,
+    WEAPON_LONG_RANGE,
+    NUM_WEAPON_TYPES
+};
+
+struct WeaponStats {
+    WeaponType type;
+    float range;
+    float damage;
+    float fireRate;
+};
+
+WeaponStats g_weaponStats[NUM_WEAPON_TYPES] = {
+    {WEAPON_SHORT_RANGE, 5.0f, 10.0f, 0.07f}, // 短射程シューター
+    {WEAPON_MIDDLE_RANGE, 10.0f, 8.0f, 0.2f}, // 中射程ブラスター
+    {WEAPON_LONG_RANGE, 20.0f, 5.0f, 0.6f},   // 長射程チャージャー
+};
+
+
+// ゲームの状態を管理する構造体
+struct GameState {
+    // プレイヤーの位置、方向、状態
+    // 弾丸のリスト
+    // 地形データ
+    // UI関連の変数
+
+    enum GameScreenState {
+        SCREEN_TITLE,
+        SCREEN_WEAPON_SELECTION,
+        SCREEN_GAMEPLAY,
+        SCREEN_GAMEOVER
+    } currentScreen;
+
+    WeaponType currentWeaponSelection; // UI上で現在選択されている武器の種類
+    WeaponStats* playerWeapon;         // プレイヤーが現在装備している武器のデータへのポインタ
+
+    // その他、ゲームに必要なデータ
+};
 // ゲームの状態を管理するグローバル変数や構造体
 struct GameState {
     // プレイヤーの位置、方向、状態
     // 弾丸のリスト
     // 地形データ
     //UI
-WeaponStats g_weaponStats[NUM_WEAPON_TYPES] = {
-{WEAPON_SHORT_RANGE, 5.0f, 10.0f, 0.1f}, // 短射程シュータ
-{WEAPON_MIDDLE_RANGE, 10.0f, 8.0f, 0.2f}, // 中射程ブラスター
-{WEAPON_LONG_RANGE, 20.0f, 5.0f, 0.5f},   // 長射程チャージャー
-};
     // ゲームフェーズ (タイトル、ゲーム中、ゲームオーバー等)
     // その他
 };
