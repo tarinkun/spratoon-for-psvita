@@ -48,7 +48,8 @@ WeaponType currentWeaponSelection; // UI上で現在選択されている武器�
 playerWeapon;//プレイヤー装備武器のデータ
 
     WeaponType currentWeaponSelection; // UI上で現在選択されている武器の種類
-    WeaponStats* playerWeapon;         // プレイヤーが現在装備している武器のデータへのポインタ
+    WeaponStats*
+playerWeapon;         // プレイヤーが現在装備している武器のデータへのポインタ
 
     // その他、ゲームに必要なデータ
 };
